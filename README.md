@@ -48,6 +48,24 @@ The Multi Widget above will now render as follows:
 
 In case your widget is displayed a second time on the dashboard, make sure the widget is not automatically added to the dashboard again. Check the `discoverWidgets()` function in your `adminPanelProvider.php` file.
 
+## Using custom labels for tabs
+
+By default, the label name is generated based on the class name. If you want to customize the label for the tab, add the `getDisplayName()` method to your widget.
+
+```php
+// app/Filament/Widgets/ProductSales.php
+
+class ProductSales extends BaseWidget
+{
+   // Some widget content...
+   
+    public function getDisplayName(): string {
+        return "Custom name";
+    }
+}
+```
+
+
 ## Persist tabs in session
 To persist the tabs in the user's session, use the shouldPersistMultiWidgetTabsInSession() method:
 
